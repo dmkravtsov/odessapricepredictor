@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Car Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h2>Odessa real estate price prediction</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <input type="text" name="district" placeholder="district" required="required" />
+    <input type="text" name="rooms" placeholder="rooms" required="required" />
+		<input type="text" name="floor" placeholder="floor" required="required" />
+		<input type="text" name="floors" placeholder="floors" required="required" />
+ 		<input type="text" name="area" placeholder="area" required="required" />
+ 		<input type="text" name="type" placeholder="type" required="required" />
+ 		<input type="text" name="cond" placeholder="walls" required="required" />
+        <input type="text" name="near_sea" placeholder="near_sea" required="required" />
+        <input type="text" name="near_school" placeholder="near_school" required="required" />
+        <input type="text" name="near_kindergarten" placeholder="near_kindergarten" required="required" />
+        <input type="text" name="near_park" placeholder="near_park" required="required" />
+        <input type="text" name="with_parking" placeholder="with_parking" required="required" />
+        <input type="text" name="new" placeholder="new" required="required" />
+        <input type="text" name="after_renovation" placeholder="after_renovation" required="required" />
+             <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
