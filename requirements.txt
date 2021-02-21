@@ -140,5 +140,4 @@ Werkzeug==0.16.1
 wordcloud==1.8.1
 wrapt==1.12.1
 WTForms==2.2.1
-xkit==0.0.0
 zipp==1.0.0
