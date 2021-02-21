@@ -1,4 +1,4 @@
-alembic==1.1.0.dev0
+alembic==1.1.0
 antiorm==1.2.1
 appdirs==1.4.3
 apturl==0.5.2
