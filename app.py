@@ -1,7 +1,9 @@
 
 import numpy as np
+import math
 from flask import Flask, request, jsonify, render_template
 import pickle
+
 # create instance of Flask app
 app = Flask(__name__)
 model = pickle.load(open('finalized_model.pkl', 'rb'))
@@ -19,11 +21,11 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    prediction = (np.expm1(model.predict(final_features))).round()
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Odessa real estate price prediction ${}'.format(output))
+    return render_template('index.html', prediction_text='Predicted price for this apartments ${}'.format(output))
 # 3rd route and it's content
 @app.route('/predict_api',methods=['POST'])
 def predict_api():

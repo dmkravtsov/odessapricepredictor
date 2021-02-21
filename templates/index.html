@@ -3,36 +3,59 @@
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
-  <title>Car Price Prediction</title>
+  <title>Odessa real estate price predictor</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
 <body>
  <div class="login">
-	<h2>Odessa real estate price prediction</h2>
+	  <h2>Odessa real estate price prediction</h2>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    <input type="text" name="district" placeholder="district" required="required" />
-    <input type="text" name="rooms" placeholder="rooms" required="required" />
-		<input type="text" name="floor" placeholder="floor" required="required" />
-		<input type="text" name="floors" placeholder="floors" required="required" />
- 		<input type="text" name="area" placeholder="area" required="required" />
- 		<input type="text" name="type" placeholder="type" required="required" />
- 		<input type="text" name="cond" placeholder="walls" required="required" />
-        <input type="text" name="near_sea" placeholder="near_sea" required="required" />
-        <input type="text" name="near_school" placeholder="near_school" required="required" />
-        <input type="text" name="near_kindergarten" placeholder="near_kindergarten" required="required" />
-        <input type="text" name="near_park" placeholder="near_park" required="required" />
-        <input type="text" name="with_parking" placeholder="with_parking" required="required" />
-        <input type="text" name="new" placeholder="new" required="required" />
-        <input type="text" name="after_renovation" placeholder="after_renovation" required="required" />
-             <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+        <select id="district" name="district" selected="district" >
+          <option value="1">Malinovsky district</option>
+          <option value="2">Kievsky district</option>
+          <option value="3">Primorsky district</option>
+          <option value="4">Suvorovsky district</option>
+        </select>
+
+      <input type="text" name="rooms" placeholder=" Rooms" required="required" />
+      <input type="text" name="floor" placeholder=" Floor" required="required" />
+      <input type="text" name="floors" placeholder=" Floors" required="required" />
+      <input type="text" name="area" placeholder=" Area" required="required" />
+
+        <select id="type" name="type" selected="type" >
+          <option value="1">New</option>
+          <option value="2">Special project</option>
+          <option value="3">Other</option>
+        </select>
+
+        <select id="cond" name="cond" selected="cond" >
+          <option value="1">After renovation</option>
+          <option value="2">After builders</option>
+          <option value="3">Need renovation</option>
+          <option value="4">Residential clean</option>
+        </select>
+
+        <select id="walls" name="walls" selected="walls" >
+          <option value="1">Brick/silicate brick</option>
+          <option value="2">Monolith or concrete</option>
+          <option value="3">Shell rock or shell brick</option>
+          <option value="4">Blocky or block-brick</option>
+          <option value="5">Panele</option>
+          <option value="6">Aerated, foam or expanded clay concrete</option>
+          <option value="7">Other</option>
+        </select>
+
+
+                  <button type="submit" class="btn btn-primary btn-block btn-large">PREDICT PRICE</button>
     </form>
 
    <br>
