@@ -123,7 +123,6 @@ simplejson==3.16.0
 six==1.14.0
 sklearn==0.0
 soupsieve==2.1
-speaklater==1.4
 SQLAlchemy==1.3.12
 sqlparse==0.2.4
 sshtunnel==0.1.4
