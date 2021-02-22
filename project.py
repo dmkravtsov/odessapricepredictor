@@ -1,10 +1,8 @@
 import string
 from sklearn.ensemble import RandomForestRegressor
-from nltk.stem import WordNetLemmatizer
 SEED=2020
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
-# from db import Session, Features, Apartments
 from numpy import mean
 from collections import Counter
 import numpy as np
@@ -14,7 +12,6 @@ import pickle
 import joblib
 from sklearn.model_selection import cross_val_score
 
-print ('Started')
 df= pd.read_csv(r'odessa_apts_prices_en_2020.csv')
 df.drop('desc', axis=1, inplace=True)
 numcol = df.select_dtypes(include=[np.number]).columns.drop('price')
