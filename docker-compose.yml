@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgressql/data
+    ports:
+      - "5432:5432"
+  api:
+    build: ./api
+    container_name: api
+    tty: true
+    restart: always
+    volumes:
+      - api-data:/src/models
+    ports:
+      - "8000:8000"
+    command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
+    links:
+      - postgres:postgres
+volumes:
+  db-data:
+  api-data:

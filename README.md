@@ -1,6 +1,6 @@
-#Application for price prediction of an apartment in Odessa
+# Application for price prediction of an apartment in Odessa
 
-#Create a local folder for your project: $mkdir project && cd project
+# Create a local folder for your project: $mkdir project && cd project
 
 #Upload the project with the command: $git clone https://github.com/dmkravtsov/odessapricepredictor.git
 
