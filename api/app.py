@@ -10,7 +10,7 @@ from loguru import logger  # Дебажить на стороне сервара
 
 # create instance of Flask app
 app = Flask(__name__)
-model = pickle.load(open('finalized_model.pkl', 'rb'))
+model = pickle.load(open('api/models/finalized_model.pkl', 'rb'))
 
 
 @app.route('/')
@@ -29,7 +29,7 @@ def predict():
         prediction = (np.expm1(model.predict(final_features))).round()
 
         output = round(prediction[0], 2)
-    except as Exceetion(e):
+    except Exception(e):
         logger.error(e)
 
     return render_template('index.html', prediction_text='Predicted price for this apartments ${}'.format(output))
@@ -48,7 +48,7 @@ def predict_api():
 
 
 # Рекомендация
-@app.route('/update_model', methods['POST'])
+@app.route('/update_model', methods=['POST'])
 def update_model():
     '''
     Обновление модели.

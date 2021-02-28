@@ -14,7 +14,7 @@
 
 <body>
  <div class="login">
-	  <h2>Odessa real estate price prediction</h2>
+	  <h2>Odessa real estate price predictor</h2>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
@@ -26,10 +26,10 @@
           <option value="4">Suvorovsky district</option>
         </select>
 
-      <input type="text" name="rooms" placeholder=" Rooms" required="required" />
-      <input type="text" name="floor" placeholder=" Floor" required="required" />
-      <input type="text" name="floors" placeholder=" Floors" required="required" />
-      <input type="text" name="area" placeholder=" Area" required="required" />
+      <input type="text" name="rooms" placeholder=" Rooms (from 1 to 4 in numbers)" pattern="[1-4]{1,1}" />
+      <input type="text" name="floor" placeholder=" Floor (from 1 to 26 in numbers)" pattern="^[1-9]$|[1-2][0-6]$" />
+      <input type="text" name="floors" placeholder=" Floors (from 1 to 26 in numbers)" pattern="^[1-9]$|[1-2][0-6]$" />
+      <input type="text" name="area" placeholder=" Area (from 10 to 149 m3 in numbers)" pattern="^[1-9][0-9]$|[1][0-4][0-9]$" />
 
         <select id="type" name="type" selected="type" >
           <option value="1">New</option>
