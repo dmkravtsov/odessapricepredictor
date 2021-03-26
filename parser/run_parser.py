@@ -40,13 +40,13 @@ class Logic:
 
     def get_price(self, rate=28):
         div = self.block_price()
-        if not div:
+        if not div:  
             return None
         price = re.sub(r'\D', '', div.get_text())
         if price:
             return float(price) / rate
         else:
-            None
+            return None
 
     def get_district(self):
         try:
@@ -215,9 +215,9 @@ if __name__ == '__main__':
             Floors=i['floors'],
             Area=i['area'],
             Type=i['type'],
+            Cond=i['cond'],
             Walls=i['walls'],
             Desc=i['desc'],
-            Name=i['name'],
-        )
+            Name=i['name'])
         session.add(add_data)
     session.commit()
