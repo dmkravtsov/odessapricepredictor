@@ -1,7 +1,7 @@
 from loguru import logger
 from datetime import datetime
 from parser import run_parser
-from table import create_table
+from create_tables import create_table
 
 
 create_table()

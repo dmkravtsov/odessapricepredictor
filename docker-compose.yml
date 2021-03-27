@@ -6,21 +6,33 @@ services:
     container_name: postgres
     restart: always
     volumes:
-      - db-data:/var/lib/postgressql/data
+      - db-data:/var/lib/postgressql/data # просьба пояснить, что это за путь? Как его задавать?
     ports:
-      - "5400:5432"
+      - "5400:5432" # порты могут быть любыми? можно писать  5400:5400?
   api:
     build: ./api
     container_name: api
     tty: true
     restart: always
     volumes:
-      - api-data:/src/models
+      - api-data:/src/models  # где мы берем данные, чтобы задать этот путь?
     ports:
-      - "8000:8000"
-    command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
+      - "8000:8000" # порты могут быть любыми?
+    command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900" # научи плз, как это задавать?
     links:
       - postgres:postgres
+  parser:
+    build: ./parser
+    container_name: parser
+    tty: true
+    restart: always
+    volumes: 
+      - parser-data: # как задать путь?
+    ports: "5400:5432" # верно? мы к этому порту в postgres его присоединяем?
+    command: # просьба подсказать
+    links: 
+      - postgres:postgres   # верно понимаю?
 volumes:
   db-data:
   api-data:
+  parser-data:  # верно добавил?
