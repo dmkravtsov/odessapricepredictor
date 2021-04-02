@@ -5,4 +5,4 @@ WORKDIR ${APP_ROOT}}
 ADD . ${APP_ROOT}
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-EXPOSE 8000
+EXPOSE 5000

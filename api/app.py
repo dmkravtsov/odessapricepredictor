@@ -10,7 +10,8 @@ from loguru import logger  # Дебажить на стороне сервара
 
 # create instance of Flask app
 app = Flask(__name__)
-model = pickle.load(open('api/models/finalized_model.pkl', 'rb'))
+# model = pickle.load(open('api/models/finalized_model.pkl', 'rb'))
+model = pickle.load(open('models/finalized_model.pkl', 'rb'))
 
 
 @app.route('/')
@@ -60,4 +61,4 @@ def update_model():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
