@@ -4,5 +4,5 @@ RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}}
 ADD . ${APP_ROOT}
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip3 install -r ${APP_ROOT}/requirements.txt  
 EXPOSE 5000

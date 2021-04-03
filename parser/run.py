@@ -1,15 +1,15 @@
 from loguru import logger
 from datetime import datetime
-from parser import run_parser
-from create_tables import create_table
+# import create_tables
+# import run_parser
+import time
 
-
-create_table()
 while True:
     logger.info("Update data", datetime.now())
     day = datetime.today().weekday()
     if day == 0:
-        run_parser()
+        import create_tables
+        import run_parser
         time.sleep(86400)
     else:
         time.sleep(86400)
