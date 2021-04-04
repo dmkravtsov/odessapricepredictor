@@ -3,6 +3,7 @@ import requests
 import re
 from google_trans_new import google_translator
 from db import Session, Apartments
+import pandas as pd
 
 
 session = Session()
@@ -205,7 +206,7 @@ if __name__ == '__main__':
     base_scraping_link = "https://alexander-n.com/kvartiri?page="
     top_pages = 1  # "How many pages do you want to scrape?"
     apts = scrape_this(base_scraping_link, int(top_pages))
-
+    
     for i in apts:
         add_data = Apartments(
             Price=i['price'],
@@ -221,3 +222,5 @@ if __name__ == '__main__':
             Name=i['name'])
         session.add(add_data)
     session.commit()
+    apts = pd.DataFrame(apts)
+    save = apts.to_csv('odessa_apts_prices_2020.csv', index=False)
