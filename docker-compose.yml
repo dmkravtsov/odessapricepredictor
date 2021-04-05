@@ -17,7 +17,7 @@ services:
     tty: true
     restart: always
     volumes:
-      - api-data:/src/app.py
+      - api-data:/app.py
     ports:
       - "8000:8000"
     command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
@@ -29,9 +29,10 @@ services:
     tty: true
     restart: always
     volumes: 
-      - parser-data:/src/run.py # верно?
-    ports: "5400:5432" # верно? мы к этому порту в postgres его присоединяем?
-    command: # просьба подсказать
+      - parser-data:/run.py # верно?
+    ports: 
+      - "5000:5432" # верно? мы к этому порту в postgres его присоединяем?
+    command: python ./run.py ## верно задал?
     links: 
       - postgres:postgres   # верно понимаю?
 volumes:
