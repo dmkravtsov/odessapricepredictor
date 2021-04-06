@@ -11,31 +11,45 @@ services:
       POSTGRES_PASSWORD: docker 
     ports:
       - "5400:5432" 
+
   api:
+    restart: always
     build: ./api
-    container_name: api
-    tty: true
-    restart: always
-    volumes:
-      - api-data:/app.py
     ports:
-      - "8000:8000"
-    command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
-    links:
-      - postgres:postgres
-  parser:
-    build: ./parser
-    container_name: parser
-    tty: true
-    restart: always
+      - 5000:5000
     volumes: 
-      - parser-data:/run.py # верно?
+      - .:/api
+    entrypoint: ["python3", "app.py"]
+
+  parser:
+    restart: always
+    build: ./parser
     ports: 
-      - "5000:5432" # верно? мы к этому порту в postgres его присоединяем?
-    command: python ./run.py ## верно задал?
+      - 8000:8000
+    # command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
+
+    volumes: 
+      - .:/parser
+    depends_on:
+      - postgres
+    entrypoint: ["python3", "run.py"]
     links: 
-      - postgres:postgres   # верно понимаю?
+      - postgres:postgres  
+
+  # api:
+  #   build: ./api
+  #   container_name: api
+  #   tty: true
+  #   restart: always
+  #   volumes:
+  #     - api-data:/app.py
+  #   ports:
+  #     - "8000:8000"
+  #   command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
+  #   links:
+  #     - postgres:postgres
+
 volumes:
   db-data:
   api-data:
-  parser-data:  # верно добавил?
+  parser-data:
