@@ -16,25 +16,32 @@ services:
     restart: always
     build: ./api
     ports:
-      - 5000:5000
+      - "5000:5000"
     volumes: 
       - .:/api
     entrypoint: ["python3", "app.py"]
 
   parser:
-    restart: always
     build: ./parser
-    ports: 
+    restart: always
+    ports:
       - 8000:8000
-    # command: "gunicorn -b 0.0.0.0:8000 -k gevent wsgi:app --timeout 900"
-
     volumes: 
       - .:/parser
-    depends_on:
-      - postgres
     entrypoint: ["python3", "run.py"]
-    links: 
-      - postgres:postgres  
+
+  # parser:
+  #   restart: always
+  #   build: ./parser
+  #   ports: 
+  #     - "8000:8000"
+  #   volumes: 
+  #     - .:/app
+  #   depends_on:
+  #     - postgres
+  #   entrypoint: ["python3", "run.py"]
+  #   links: 
+  #     - postgres:postgres  
 
   # api:
   #   build: ./api

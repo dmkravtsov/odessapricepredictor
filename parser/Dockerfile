@@ -1,10 +1,7 @@
 FROM python:3.8.5-buster
-ENV APP_ROOT /src
-RUN mkdir ${APP_ROOT}
-WORKDIR ${APP_ROOT}}
-ADD . ${APP_ROOT}
+RUN mkdir /app
+COPY . /app
+WORKDIR  /app
 RUN pip install --upgrade pip
-RUN pip3 install -r ${APP_ROOT}/requirements.txt  
+RUN pip3 install -r requirements.txt  
 EXPOSE 8000
-# ENTRYPOINT ["python3"]
-# CMD ["run.py"]

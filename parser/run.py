@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from loguru import logger
 from datetime import datetime
 import subprocess
