@@ -1,4 +1,4 @@
-# Application for price prediction of an apartment
+## Application for price prediction of an apartment
 
 ● This application can be useful for organizations involved in the sale of real estate objects
 
@@ -14,7 +14,7 @@
 
 ● This application was developed on the base of my experience with the House Prices: Advanced Regression Techniques script, which was included in the top 2% rating on the Kaggle resource https://www.kaggle.com/dmkravtsov/3-2-house-prices 
 
-# Technologies used:
+## Technologies used:
 
 Python -  for backend
 Beautifulsoup - for data parsing
