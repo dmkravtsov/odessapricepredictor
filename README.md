@@ -16,13 +16,13 @@
 
 ## Technologies used:
 
-Python -  for backend
-Beautifulsoup - for data parsing
-PostgreSQL, SQLAlchemy - for database organize
-Docker and Docker-compose - to create, configure and run application services
-HTML and CSS - for frontend
-Flask framework -  for integration of frontend and backend
-Numpy, Sklearn, Pandas, RandomForestRegressor
+1. Python -  for backend
+2. Beautifulsoup - for data parsing
+3. PostgreSQL, SQLAlchemy - for database organize
+4. Docker and Docker-compose - to create, configure and run application services
+5. HTML and CSS - for frontend
+6. Flask framework -  for integration of frontend and backend
+7. Numpy, Sklearn, Pandas, RandomForestRegressor
 
 # Steps to run the code:
 
@@ -45,3 +45,10 @@ Numpy, Sklearn, Pandas, RandomForestRegressor
 # Test predictor available on web: http://odessapricepredictor.herokuapp.com/  or on your localhost: http://0.0.0.0:5000/
 
 ![Alt text](api/static/css/predictor.jpg?raw=true) 
+
+Please just fill in all the lines and get a forecast for the cost of your appartment
+
+Actual prices vs predicted:
+![Alt text](api/static/css/diagram.png?raw=true) 
+
+Thank you for your time!!
