@@ -1,4 +1,8 @@
-### Application for price prediction of an apartment
+# Application for price prediction of an apartment
+
+The main aim of the project  -  to identify the best model to make the appartments price prediction with given features and use a supervised learning technique.
+
+This dataset is available on Kaggle: https://www.kaggle.com/dmkravtsov/real-estate-odessa-prices-2020
 
 ## Total description:
 
@@ -26,25 +30,21 @@
 6. Flask framework -  for integration of frontend and backend
 7. Numpy, Sklearn, Pandas, RandomForestRegressor
 
-# Steps to run the code:
+## Steps to run the code:
 
 1. Create a local folder for your project: $mkdir project && cd project
-
 2. Upload the project with the command: $git clone https://github.com/dmkravtsov/odessapricepredictor.git
-
 3. Create virtual environment:  $virtualenv venv
-
 4. Initialize the repository: $ git init
-
 5. Add your environment to .gitignore:  $echo 'venv' > .gitignore
-
 6. Activate virtual environment: $source venv/bin/activate
-
 7. Run docker compose file from project directory: docker-compose up
-
 8. Real estate data will be parced once per week
 
-# Test predictor available on web: http://odessapricepredictor.herokuapp.com/  or on your localhost: http://0.0.0.0:5000/
+### Please just fill in all the lines and get a forecast for the cost of your appartment
+
+## Test predictor available on web: http://odessapricepredictor.herokuapp.com/  
+## or on your localhost: http://0.0.0.0:5000/
 
 ![Alt text](api/static/css/predictor.jpg?raw=true) 
 
@@ -57,6 +57,10 @@ Actual prices vs predicted:
 Best model will be considered as:
 
 ![Alt text](api/static/css/best_model.png?raw=true) 
+
+## Summary: 
+
+After getting the result  I still have to put much more efforts to improve my model. The result reflects that some of the valuable data might not yet to be discovered from the dataset. Probably need to review all data missed, outliers, and spend more time for data analysis and multicollinearity issue.
 
 
 Thank you for your time!!
