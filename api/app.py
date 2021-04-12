@@ -3,14 +3,11 @@ import numpy as np
 import math
 from flask import Flask, request, jsonify, render_template
 import pickle
-from loguru import logger  # Дебажить на стороне сервара.
+from loguru import logger  
 
-# 1  Проверить типы данных. ПОльзователи что попало отправляют
-# 2 Try Eccept
 
 # create instance of Flask app
 app = Flask(__name__)
-# model = pickle.load(open('api/models/finalized_model.pkl', 'rb'))
 model = pickle.load(open('models/finalized_model.pkl', 'rb'))
 
 
@@ -46,19 +43,6 @@ def predict_api():
 
     output = prediction[0]
     return jsonify(output)
-
-
-# Рекомендация
-@app.route('/update_model', methods=['POST'])
-def update_model():
-    '''
-    Обновление модели.
-    1. СОбрать данные
-    2. Обучить модель
-    3. Сохранить
-    '''
-    pass
-
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
