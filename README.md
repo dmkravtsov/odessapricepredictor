@@ -1,4 +1,6 @@
-## Application for price prediction of an apartment
+### Application for price prediction of an apartment
+
+## Total description:
 
 ● This application can be useful for organizations involved in the sale of real estate objects
 
@@ -46,9 +48,15 @@
 
 ![Alt text](api/static/css/predictor.jpg?raw=true) 
 
-Please just fill in all the lines and get a forecast for the cost of your appartment
+Please just fill in all the lines and get a forecast for the cost of your appartment.
 
 Actual prices vs predicted:
+
 ![Alt text](api/static/css/diagram.png?raw=true) 
+
+Best model will be considered as:
+
+![Alt text](api/static/css/best_model.png?raw=true) 
+
 
 Thank you for your time!!
