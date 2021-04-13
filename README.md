@@ -28,7 +28,7 @@ This dataset is available on Kaggle: https://www.kaggle.com/dmkravtsov/real-esta
 4. Docker and Docker-compose - to create, configure and run application services
 5. HTML and CSS - for frontend
 6. Flask framework -  for integration of frontend and backend
-7. Numpy, Sklearn, Pandas, RandomForestRegressor
+7. Numpy, Sklearn, Pandas, RandomForestRegressor, TensorFlow, Keras - for data science
 
 ## Steps to run the code:
 
