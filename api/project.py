@@ -85,7 +85,7 @@ def drop_outliers(df):
         IQR = Q3 - Q1
 
         # outlier step
-        outlier_step = 1.2 * IQR ## can be increased to 1.7 sometimes
+        outlier_step = 1.2 * IQR 
 
         # Determine a list of indices of outliers for feature col
         outlier_list_col = df[(df[col] < Q1 - outlier_step) | (df[col] > Q3 + outlier_step )].index
@@ -119,7 +119,6 @@ def main(df):
     rf.fit(X, y)
     scores = cross_val_score(rf, X, y, scoring='r2', cv=3, n_jobs=-1)
     s_mean = mean(scores)
-    print('Mean R2 before save model: %.3f' % (s_mean))
     # save the model to disk
     filename = 'finalized_model.pkl'
     pickle.dump(rf, open(filename,'wb'))
